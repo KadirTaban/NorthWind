@@ -1,6 +1,8 @@
 package ko.northwind.business.concretes;
 
 import ko.northwind.business.abstracts.ProductService;
+import ko.northwind.core.utilities.results.DataResult;
+import ko.northwind.core.utilities.results.SuccessDataResult;
 import ko.northwind.dataAccess.abstracts.ProductDao;
 import ko.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,9 @@ public class ProductManager implements ProductService {
     }
 
     @Override
-    public List<Product> getAll() {
-        return this.productDao.findAll();
+    public DataResult<List<Product>> getAll() {
+
+        return new SuccessDataResult<List<Product>>(this.productDao.findAll(),"Data listelendi");
+
     }
 }

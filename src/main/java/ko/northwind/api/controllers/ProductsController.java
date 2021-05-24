@@ -1,6 +1,8 @@
 package ko.northwind.api.controllers;
 
 import ko.northwind.business.abstracts.ProductService;
+import ko.northwind.core.utilities.results.DataResult;
+import ko.northwind.core.utilities.results.Result;
 import ko.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,13 +17,15 @@ public class ProductsController {
 
     @Autowired
     public ProductsController(ProductService productService) {
+        super();
         this.productService = productService;
     }
 
     private ProductService productService;
-    @GetMapping("/getall")
 
+
+    @GetMapping("/getall")
     public List<Product> getAll(){
-        return this.productService.getAll();
+        return (List<Product>) new DataResult(null,false,null);
     }
 }
