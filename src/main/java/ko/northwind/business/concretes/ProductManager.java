@@ -2,7 +2,9 @@ package ko.northwind.business.concretes;
 
 import ko.northwind.business.abstracts.ProductService;
 import ko.northwind.core.utilities.results.DataResult;
+import ko.northwind.core.utilities.results.Result;
 import ko.northwind.core.utilities.results.SuccessDataResult;
+import ko.northwind.core.utilities.results.SuccessResult;
 import ko.northwind.dataAccess.abstracts.ProductDao;
 import ko.northwind.entities.concretes.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,13 @@ public class ProductManager implements ProductService {
 
         return new SuccessDataResult<List<Product>>(this.productDao.findAll(),"Data listelendi");
 
+    }
+
+
+
+    @Override
+    public Result add(Product product) {
+        this.productDao.save(product);
+        return new SuccessResult("Ürün eklendi");
     }
 }
