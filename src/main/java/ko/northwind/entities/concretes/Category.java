@@ -1,5 +1,7 @@
 package ko.northwind.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,10 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "categories")
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})//can't parse json
 
 
 public class Category {
 
+    @Id
     @Column(name = "category_id")
     private int categoryId;
 
