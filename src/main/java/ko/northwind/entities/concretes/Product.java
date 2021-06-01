@@ -16,9 +16,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private int id;
-
-    @Column(name = "category_id")
-    private int categoryId;
+    //line 37 join column'dan kaynaklı gerek kalmadı.
+    //@Column(name = "category_id")
+    //private int categoryId;
 
     @Column(name = "product_name")
     private String productName;
@@ -31,6 +31,11 @@ public class Product {
 
     @Column(name = "quantity_per_unit")
     private String quantityPerUnit;
+
+    //değer k. tanım k.
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
 
 
