@@ -8,7 +8,9 @@ import ko.northwind.core.utilities.results.Result;
 import ko.northwind.core.utilities.results.SuccessDataResult;
 import ko.northwind.core.utilities.results.SuccessResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserManager implements UserService {
     private UserDao userDao;
     @Autowired
