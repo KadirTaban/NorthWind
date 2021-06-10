@@ -3,6 +3,7 @@ package ko.northwind.business.abstracts;
 import ko.northwind.core.utilities.results.DataResult;
 import ko.northwind.core.utilities.results.Result;
 import ko.northwind.entities.concretes.Product;
+import ko.northwind.entities.dtos.ProductWithCategoryDto;
 
 import javax.xml.crypto.Data;
 import java.util.List;
@@ -29,5 +30,6 @@ public interface ProductService {
 
     DataResult<List<Product>> GetByNameAndCategory(String productName, int categoryId);
 
+    DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 
 }

@@ -4,6 +4,7 @@ import ko.northwind.business.abstracts.ProductService;
 import ko.northwind.core.utilities.results.DataResult;
 import ko.northwind.core.utilities.results.Result;
 import ko.northwind.entities.concretes.Product;
+import ko.northwind.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,11 @@ public class ProductsController {
     @GetMapping("/getall")
     public DataResult<List<Product>> getAll(){
         return this.productService.getAll();
+    }
+
+    @GetMapping("/getProductWithCategoryDetails")
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+        return this.productService.getProductWithCategoryDetails();
     }
 
     @PostMapping("/add")
