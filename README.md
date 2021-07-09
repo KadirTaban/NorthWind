@@ -11,7 +11,7 @@ CRUD operations.
 swaggerui is included in the project. 
 
 
-I couldn't manage to database so i used H2 database.
+I used PostgreSQL.
 
 The most interesting feature that caught my attention in the project is the jpa repository.
 
